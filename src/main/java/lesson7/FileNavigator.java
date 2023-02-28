@@ -14,6 +14,7 @@ public class FileNavigator {
     public void add(String path, FileData file) throws InconsistentPathException{
 
         if(files.containsKey(path)) {
+            if (!path.equals(file.getPath())) throw new InconsistentPathException("Wrong path!!!");
             List<FileData> existingFile = files.get(path);
             List<FileData> newFile = new ArrayList<>(existingFile);
             newFile.add(file);
