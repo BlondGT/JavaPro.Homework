@@ -11,7 +11,7 @@ public class FileNavigator {
 // Якщо шлях вже існує, новий файл необхідно додати до списку, вже пов'язаному з відповідним шляхом.
 // ВАЖЛИВО: Шлях – унікальне значення і не повинно повторюватися.
 
-    public boolean add(String path, FileData file) {
+    public void add(String path, FileData file) {
 
         if(files.containsKey(path)) {
             List<FileData> existingFile = files.get(path);
@@ -20,9 +20,9 @@ public class FileNavigator {
             files.put(path, newFile);
         } else {
             files.put(path, List.of(file));
-            return true;
+//            return true;
         }
-        return false;
+//        return false;
     }
 
 //   3. Реалізувати метод find у класі FileNavigator. Метод повертає список файлів,
@@ -52,9 +52,9 @@ public class FileNavigator {
 //   5. Реалізувати метод remove у класі FileNavigator. Метод видаляє шлях і пов'язані з ним файли,
 //   виходячи з значення шляху, переданого як параметр.
 
-    public boolean remove(String path) {
+    public void remove(String path) {
         files.remove(path);
-        return true;
+//        return true;
     }
 
 //    6. * Реалізувати метод sortBySize у класі FileNavigator. Метод сортує всі наявні файли за розміром
@@ -65,7 +65,7 @@ public class FileNavigator {
         List<FileData> allFiles = new ArrayList<>();
 
         for(List<FileData> fileData : files.values()) {
-            allFiles.add((FileData) fileData);
+            allFiles.addAll(fileData);
         }
         allFiles.sort(Comparator.comparingLong(FileData::getSize));
         return allFiles;
@@ -80,7 +80,19 @@ public class FileNavigator {
 //    Шлях: /path/to/file
 //    FileData: {name: ..., size: ..., path: /another/path/}
 
+    public void checkConsistency(String path) throws RuntimeException {
 
+        for (List<FileData> file : files.values()) {
+            for(FileData fileData : file) {
+                if (!path.equals(fileData.getPath())) throw new RuntimeException();
+                try {
+                    add(path, fileData);
+                } catch (RuntimeException exception) {
+                    System.out.println("Wrong path!!!");
+                }
+            }
+        }
+    }
 }
 
 

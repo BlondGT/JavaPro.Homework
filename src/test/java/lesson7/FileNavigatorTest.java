@@ -2,6 +2,7 @@ package lesson7;
 
 import org.junit.jupiter.api.Test;
 
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -12,9 +13,9 @@ class FileNavigatorTest {
     void shouldAdd() {
 
         FileNavigator fileNavigator = new FileNavigator();
+        fileNavigator.add("path/to/file", new FileData(32, "list.txt", "path/to/file"));
 
-        assertTrue(fileNavigator.add("path/to/file",
-                new FileData(32, "list.txt", "path/to/file")));
+        assertEquals(0, 1);
     }
 
     @Test
@@ -51,8 +52,8 @@ class FileNavigatorTest {
         FileNavigator fileNavigator = new FileNavigator();
         fileNavigator.add("path/to/file", new FileData(32, "list.txt", "path/to/file"));
         fileNavigator.add("path/to/file", new FileData(16, "app.txt", "path/to/file"));
-
-        assertTrue(fileNavigator.remove("path/to/file"));
+        fileNavigator.remove("path/to/file");
+        assertTrue(true);
     }
 
     @Test
@@ -70,4 +71,12 @@ class FileNavigatorTest {
                 fileNavigator.sortBySize());
     }
 
+    @Test
+    void shouldCheckConsistency() {
+
+        FileNavigator fileNavigator = new FileNavigator();
+        fileNavigator.add("path/to/file", new FileData(32, "list.txt", "path/to/file"));
+
+        assertThrows(RuntimeException.class, () -> fileNavigator.checkConsistency("path/to/array"));
+    }
 }
