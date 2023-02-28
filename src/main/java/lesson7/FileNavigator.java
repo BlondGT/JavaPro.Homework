@@ -11,7 +11,7 @@ public class FileNavigator {
 // Якщо шлях вже існує, новий файл необхідно додати до списку, вже пов'язаному з відповідним шляхом.
 // ВАЖЛИВО: Шлях – унікальне значення і не повинно повторюватися.
 
-    public void add(String path, FileData file) {
+    public void add(String path, FileData file) throws InconsistentPathException{
 
         if(files.containsKey(path)) {
             List<FileData> existingFile = files.get(path);
@@ -19,17 +19,16 @@ public class FileNavigator {
             newFile.add(file);
             files.put(path, newFile);
         } else {
+            if (!path.equals(file.getPath())) throw new InconsistentPathException("Wrong path!!!");
             files.put(path, List.of(file));
-//            return true;
         }
-//        return false;
     }
 
 //   3. Реалізувати метод find у класі FileNavigator. Метод повертає список файлів,
 //   пов'язаних з шляхом переданим як параметр.
 
-    public List<FileData> find(String path) {
-        return files.get(path);
+        public List<FileData> find(String path) {
+            return files.get(path);
     }
 
 //    4. Реалізувати метод filterBySize у класі FileNavigator. Метод повертає список файлів,
@@ -54,7 +53,6 @@ public class FileNavigator {
 
     public void remove(String path) {
         files.remove(path);
-//        return true;
     }
 
 //    6. * Реалізувати метод sortBySize у класі FileNavigator. Метод сортує всі наявні файли за розміром
@@ -80,19 +78,7 @@ public class FileNavigator {
 //    Шлях: /path/to/file
 //    FileData: {name: ..., size: ..., path: /another/path/}
 
-    public void checkConsistency(String path) throws RuntimeException {
 
-        for (List<FileData> file : files.values()) {
-            for(FileData fileData : file) {
-                if (!path.equals(fileData.getPath())) throw new RuntimeException();
-                try {
-                    add(path, fileData);
-                } catch (RuntimeException exception) {
-                    System.out.println("Wrong path!!!");
-                }
-            }
-        }
-    }
 }
 
 

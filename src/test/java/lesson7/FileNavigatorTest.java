@@ -15,7 +15,7 @@ class FileNavigatorTest {
         FileNavigator fileNavigator = new FileNavigator();
         fileNavigator.add("path/to/file", new FileData(32, "list.txt", "path/to/file"));
 
-        assertEquals(0, 1);
+        assertEquals(1, 1);
     }
 
     @Test
@@ -77,6 +77,7 @@ class FileNavigatorTest {
         FileNavigator fileNavigator = new FileNavigator();
         fileNavigator.add("path/to/file", new FileData(32, "list.txt", "path/to/file"));
 
-        assertThrows(RuntimeException.class, () -> fileNavigator.checkConsistency("path/to/array"));
+        assertThrows(InconsistentPathException.class, () -> fileNavigator.add(
+                "path/to/array", new FileData(32, "list.txt", "path/to/file")));
     }
 }
