@@ -27,8 +27,8 @@ public class FileNavigator {
 //   3. Реалізувати метод find у класі FileNavigator. Метод повертає список файлів,
 //   пов'язаних з шляхом переданим як параметр.
 
-        public List<FileData> find(String path) {
-            return files.get(path);
+    public List<FileData> find(String path) {
+        return files.get(path);
     }
 
 //    4. Реалізувати метод filterBySize у класі FileNavigator. Метод повертає список файлів,
