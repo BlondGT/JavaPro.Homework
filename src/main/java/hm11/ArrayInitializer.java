@@ -36,6 +36,13 @@ public class ArrayInitializer {
             System.out.println("Interrupted thread");
         }
     }
+
+    public static void main(String[] args) {
+
+        double[] array = new double[10];
+        ArrayInitializer.init(array);
+        System.out.println(Arrays.toString(array));
+    }
 }
 
 

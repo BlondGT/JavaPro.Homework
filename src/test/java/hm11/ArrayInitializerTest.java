@@ -9,10 +9,10 @@ class ArrayInitializerTest {
     @Test
     void shouldInit() {
 
-        double[] array = new double[] {2.5, 2.5, 2.5, 2.5, 2.5, 2.5};
+        double[] array = new double[] {2.5, 2.5, 2.5, 2.5};
 
         ArrayInitializer.init(array);
 
-        assertTrue(true);
+        assertArrayEquals(new double[] {0.44834755681220173, 0.5573946211285253, 2.5, 2.5}, array);
     }
 }
