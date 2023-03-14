@@ -13,6 +13,7 @@ class ArrayInitializerTest {
 
         ArrayInitializer.init(array);
 
-        assertArrayEquals(new double[] {0.44834755681220173, 0.5573946211285253, 2.5, 2.5}, array);
+        assertArrayEquals(new double[] {0.44834755681220173, 0.5573946211285253,
+                0.198020025641502, -0.40393964646934954}, array);
     }
 }
