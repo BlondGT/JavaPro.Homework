@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class ThreadSafeList<T> implements Runnable{
+public class ThreadSafeList<T> {
 
     private final ReadWriteLock readWriteLock = new ReentrantReadWriteLock();
     private final List<T> list;
@@ -46,10 +46,5 @@ public class ThreadSafeList<T> implements Runnable{
             }
         }
         return null;
-    }
-
-    @Override
-    public void run() {
-
     }
 }

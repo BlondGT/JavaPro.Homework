@@ -22,13 +22,13 @@ public class ArrayInitializerForkJoin extends RecursiveAction {
         @Override
         protected void compute() {
 
-            if ((end - start) < 2) {
+            if ((end - start) < 20) {
                 for (int i = start; i < end; i++) {
                     array[i] = array[i] * Math.sin(0.2 + i / 5.0)
                             * Math.cos(0.2 + i / 5.0) * Math.cos(0.4 + i / 2.0);
                 }
             } else {
-                int middle = (start - end) / 2;
+                int middle = (start + end) / 2;
                 ArrayInitializerForkJoin left = new ArrayInitializerForkJoin(array, start, middle);
                 ArrayInitializerForkJoin right = new ArrayInitializerForkJoin(array, middle, end);
 
@@ -43,14 +43,14 @@ public class ArrayInitializerForkJoin extends RecursiveAction {
 
         public static void init(double[] array) {
 
-                try(ForkJoinPool pool = new ForkJoinPool()) {
+                ForkJoinPool pool = new ForkJoinPool();
                 pool.invoke(new ArrayInitializerForkJoin(array, 0, array.length));
-                }
         }
 
         public static void main(String[] args) {
 
-            double[] array = new double[1000];
+            double[] array = new double[100];
+            Arrays.fill(array, 3);
             init(array);
             System.out.println(Arrays.toString(array));
     }

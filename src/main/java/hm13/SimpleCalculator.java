@@ -16,13 +16,7 @@ public class SimpleCalculator {
                 throw new RuntimeException(e);
             }
             return first * second;})
-            .thenCombine(CompletableFuture.supplyAsync(() -> {
-                return first * second;
-                }),
-                    Integer::sum)
-                .thenApply((sum) -> {
-                    return sum;
-                });
+                .thenApply(sum -> sum * 2);
     }
 
     public static void main(String[] args) throws ExecutionException, InterruptedException {
