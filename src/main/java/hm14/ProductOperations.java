@@ -1,6 +1,5 @@
 package hm14;
 
-import java.time.LocalDate;
 import java.time.Year;
 import java.util.Collections;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.stream.Collectors;
 
 import static java.util.Comparator.comparing;
 
-public class ProductAct {
+public class ProductOperations {
 
     public static List<Product> filterProductByCategoryAndPrice
             (List<Product> products, String category, double minPrice) {
@@ -19,38 +18,39 @@ public class ProductAct {
                 .collect(Collectors.toList());
     }
 
-    public static List<Product>  filterProductByCategoryAndDiscount
+    public static List<Product> filterProductByCategoryAndUseDiscount
             (List<Product> products, String category) {
         return products.stream()
                 .filter(product -> product.category().equals(category))
                 .filter (Product::discount)
+                .map(product -> new Product(product.category(), product.price() * 0.9, true, product.creationDate()))
                 .collect(Collectors.toList());
     }
 
-    public static List<Product> filterProductByCategoryAndMinPrice
+    public static List<Product> filterProductByCategoryAndCheapestOne
             (List<Product> products, String category) {
         return Collections.singletonList(products.stream()
                 .filter(product -> product.category().equals(category))
                 .min(comparing(Product::price))
                 .orElseThrow());
     }
-    public static List<Product> filterProductByThreeLastItems (List<Product> products) {
+    public static List<Product> findLastCreated(List<Product> products) {
         return products.stream()
-                .limit(products.size() - 3)
-                .skip(products.size() - 3)
+                .sorted(comparing(Product::creationDate).reversed())
+                .limit(3)
                 .collect(Collectors.toList());
     }
 
-    public static double filterProductByCategoryTimeAndSum
-            (List<Product> products, String category, LocalDate certainDate) {
+    public static double findTotalPriceInCategoryAndYear
+            (List<Product> products, String category, Year year) {
         return products.stream()
-                .filter(product -> certainDate.getYear() == Year.now().getValue())
+                .filter(product -> product.creationDate().getYear()== year.getValue())
                 .filter(product -> product.category().equals(category))
                 .mapToDouble(Product :: price)
                 .sum();
     }
 
-    public static Map<String, List<Product>> filterByCategoryTransformationInDictionary
+    public static Map<String, List<Product>> groupingByCategory
             (List<Product> products) {
         return products.stream()
                 .collect(Collectors.groupingBy(Product::category));
