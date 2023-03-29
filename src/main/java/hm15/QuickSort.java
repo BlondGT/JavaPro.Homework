@@ -4,14 +4,14 @@ import java.util.Arrays;
 
 public class QuickSort {
 
-    public static void swap(int[] array, int i, int j) {
+    private static void swap(int[] array, int i, int j) {
 
         int temp = array[i];
         array[i] = array[j];
         array[j] = temp;
     }
 
-    public static int partition(int[] array, int start, int end) {
+    private static int partition(int[] array, int start, int end) {
 
         int pivot = array[end];
         int pIndex = start;
