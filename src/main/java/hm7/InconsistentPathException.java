@@ -1,4 +1,4 @@
-package lesson7;
+package hm7;
 
 public class InconsistentPathException extends RuntimeException{
 
