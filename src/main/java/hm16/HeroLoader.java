@@ -24,16 +24,17 @@ public class HeroLoader {
                 firstLine = false;
                 continue;
             }
-            String name = line[0];
-            String gender = line[1];
-            String eyeColor = line[2];
-            String race = line[3];
-            String hairColor = line[4];
-            double height = Double.parseDouble(line[5]);
-            String publisher = line[6];
-            String skinColor = line[7];
-            String alignment = line[8];
-            int weight = Integer.parseInt(line[9]);
+            String name = line[1];
+            String gender = line[2];
+            String eyeColor = line[3];
+            String race = line[4];
+            String hairColor = line[5];
+            String heightStr = line[6].replace(",", ".");
+            double height = Double.parseDouble(heightStr);
+            String publisher = line[7];
+            String skinColor = line[8];
+            String alignment = line[9];
+            int weight = Integer.parseInt(line[10]);
             Hero hero = new Hero(name, gender, eyeColor, race, hairColor, height, publisher, skinColor, alignment, weight);
             heroes.add(hero);
         }
