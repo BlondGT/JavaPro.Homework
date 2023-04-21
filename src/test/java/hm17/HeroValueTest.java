@@ -12,7 +12,7 @@ class HeroValueTest {
         var hero = new HeroValue("Name", "male", "blue", null, null, 170, null, null, null, 70);
 
 
-        assertEquals("male", hero.getGender());
+        assert hero.getGender().equals("male");
         assertNotEquals("DC", hero.getPublisher());
     }
 

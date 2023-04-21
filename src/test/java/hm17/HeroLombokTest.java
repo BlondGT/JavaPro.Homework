@@ -9,9 +9,12 @@ class HeroLombokTest {
     @Test
     void shouldGetLombok() {
 
-        HeroLombok hero = new HeroLombok("Name", "male", "blue", null, null, 170, null, null, null, 70);
+        HeroLombok hero = new HeroLombok();
+        hero.setName("Name");
+        hero.setEyeColor("blue");
+        hero.setHairColor("blond");
 
-        assertEquals("blue", hero.getEyeColor());
+        assert hero.getEyeColor().equals("blue");
         assertNotEquals("black", hero.getHairColor());
     }
 
