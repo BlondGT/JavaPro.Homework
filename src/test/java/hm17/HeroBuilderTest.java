@@ -15,7 +15,7 @@ class HeroBuilderTest {
                 .weight(75)
                 .build();
 
-       assertEquals("Name", hero.getName());
+       assert hero.getName().equals("Name");
        assertNotEquals(80, hero.getWeight());
     }
 }
