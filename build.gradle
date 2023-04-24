@@ -21,7 +21,7 @@ dependencies {
     implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
     // https://mvnrepository.com/artifact/com.opencsv/opencsv
     implementation 'com.opencsv:opencsv:3.7'
-
+    implementation 'org.postgresql:postgresql:42.5.4'
 
 }
 
