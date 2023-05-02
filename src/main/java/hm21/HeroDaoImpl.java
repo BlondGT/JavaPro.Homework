@@ -1,6 +1,5 @@
 package hm21;
 
-import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 
 import javax.sql.DataSource;
@@ -9,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor(access = AccessLevel.PACKAGE)
+@RequiredArgsConstructor
 public class HeroDaoImpl implements HeroDao{
 
     private final DataSource dataSource;
