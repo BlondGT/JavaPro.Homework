@@ -9,7 +9,7 @@ import java.util.List;
 
 public class HeroFabric {
 
-    public HeroService createService(DataSource dataSource) {
+    public static HeroService createService(DataSource dataSource) {
         return new HeroService(createDao(dataSource), heroMovieService());
     }
 
