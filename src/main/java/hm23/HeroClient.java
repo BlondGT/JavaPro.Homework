@@ -23,6 +23,9 @@ public class HeroClient {
             String userInput;
             while ((userInput = scanner.nextLine()) != null) {
                 out.println(userInput);
+                if(userInput.equals("exit")) {
+                    break;
+                }
                 System.out.println("Server: " + in.readLine());
             }
         }

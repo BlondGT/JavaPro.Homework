@@ -1,8 +1,10 @@
 package hm22;
 
+import lombok.ToString;
+
 import java.util.List;
 
-
+@ToString
 public class HeroDto {
 
     private String name;
