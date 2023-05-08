@@ -25,14 +25,21 @@ public class DummyHeroDao implements HeroDao {
     }
 
     @Override
-    public void create(Hero hero) {
-        db.add(hero);
+    public Hero findById(Long id) {
+        return db.get(Math.toIntExact(id));
     }
 
     @Override
-    public void update(Hero hero) {
+    public Hero create(Hero hero) {
+        db.add(hero);
+        return hero;
+    }
+
+    @Override
+    public Hero update(Hero hero) {
        if(delete(hero.getId()))
            db.add(hero);
+        return hero;
     }
 
     @Override

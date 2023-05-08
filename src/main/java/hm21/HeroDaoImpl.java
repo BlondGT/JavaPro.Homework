@@ -59,7 +59,7 @@ public class HeroDaoImpl implements HeroDao{
     }
 
     @Override
-    public void create(Hero hero) {
+    public Hero create(Hero hero) {
 
     var sql = "insert into heroes_information (Name, gender, Eye color, race, Hair color, height, publisher_id, Skin color, alignment, weight) " +
             "values ('" + hero.getName() + "', '" + hero.getGender() + "', '" + hero.getEyeColor() + "', '" + hero.getRace() + "', '" +
@@ -71,10 +71,11 @@ public class HeroDaoImpl implements HeroDao{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return hero;
     }
 
     @Override
-    public void update(Hero hero) {
+    public Hero update(Hero hero) {
 
         var sql = "update heroes_information set " +
                 "Name ='"  + hero.getName() + "', " +
@@ -94,6 +95,7 @@ public class HeroDaoImpl implements HeroDao{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        return hero;
     }
 
     @Override
@@ -104,6 +106,20 @@ public class HeroDaoImpl implements HeroDao{
              var statement = connection.createStatement()) {
             statement.executeUpdate(sql);
             return true;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Hero findById(Long id) {
+        var sql = "select * from heroes_information where id = " + id + "";
+        try (var connection = dataSource.getConnection();
+             var statement = connection.createStatement()) {
+            var result = statement.executeQuery(sql);
+            return mapHeroes(result).stream()
+                    .findFirst()
+                    .orElseThrow();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
