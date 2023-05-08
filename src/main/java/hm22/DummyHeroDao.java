@@ -26,7 +26,7 @@ public class DummyHeroDao implements HeroDao {
 
     @Override
     public Hero findById(Long id) {
-        return db.get(Math.toIntExact(id));
+        return db.get(id.intValue());
     }
 
     @Override

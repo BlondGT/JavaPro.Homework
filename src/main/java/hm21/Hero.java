@@ -2,11 +2,9 @@ package hm21;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Setter;
 
 @Data
 @Builder
-@Setter
 public class Hero {
 
     private Long id;

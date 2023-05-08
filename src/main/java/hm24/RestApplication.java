@@ -30,5 +30,4 @@ public class RestApplication {
         config.setPassword("postgres");
         return new HikariDataSource(config);
     }
-
 }
