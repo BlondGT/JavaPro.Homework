@@ -20,22 +20,15 @@ import javax.sql.DataSource;
 @PropertySource("classpath:application.properties")
 public class HeroConfiguration {
 
-    private final DataSource dataSource;
     @Value("${spring.datasource.url}")
-    private final String dbUrl;
+    private String dbUrl;
 
     @Value("${spring.datasource.username}")
-    private final String dbUsername;
+    private String dbUsername;
 
     @Value("${spring.datasource.password}")
-    private final String dbPassword;
+    private String dbPassword;
 
-    public HeroConfiguration(DataSource dataSource, String dbUrl, String dbUsername, String dbPassword) {
-        this.dataSource = dataSource;
-        this.dbUrl = dbUrl;
-        this.dbUsername = dbUsername;
-        this.dbPassword = dbPassword;
-    }
 
     @Bean
     public HeroService heroService() {
@@ -44,7 +37,7 @@ public class HeroConfiguration {
 
     @Bean
     public HeroDao heroDao() {
-        return new HeroDaoImpl(dataSource);
+        return new HeroDaoImpl(dataSource());
     }
 
     @Bean
