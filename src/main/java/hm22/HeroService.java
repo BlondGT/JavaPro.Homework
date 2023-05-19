@@ -9,7 +9,7 @@ public class HeroService {
     private final HeroDao dao;
     private final HeroMovieService heroMovieService;
 
-    protected HeroService(HeroDao dao, HeroMovieService heroMovieService) {
+    public HeroService(HeroDao dao, HeroMovieService heroMovieService) {
         this.dao = dao;
         this.heroMovieService = heroMovieService;
     }
@@ -25,4 +25,11 @@ public class HeroService {
                 .toList();
     }
 
+    @Override
+    public String toString() {
+        return "HeroService{" +
+                "dao=" + dao +
+                ", heroMovieService=" + heroMovieService +
+                '}';
+    }
 }
