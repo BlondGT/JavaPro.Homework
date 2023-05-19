@@ -15,7 +15,7 @@ public class HeroDaoImpl implements HeroDao{
 
     @Override
     public List<Hero> findAll() {
-        var sql = "select * from heroes_information";
+        var sql = "select * from heroes";
         try (var connection = dataSource.getConnection();
              var statement = connection.createStatement()) {
             var result = statement.executeQuery(sql);
@@ -30,14 +30,13 @@ public class HeroDaoImpl implements HeroDao{
         while (result.next()) {
             heroes.add(Hero.builder()
                     .id(result.getLong("id"))
-                    .name(result.getString("Name"))
+                    .name(result.getString("name"))
                     .gender(result.getString("gender"))
-                    .eyeColor(result.getString("Eye color"))
+                    .eyeColor(result.getString("eye_color"))
                     .race(result.getString("race"))
-                    .hairColor(result.getString("Hair color"))
+                    .hairColor(result.getString("hair_color"))
                     .height(result.getInt("height"))
-                    .publisher_id(result.getLong("publisher_id"))
-                    .skinColor(result.getString("Skin color"))
+                    .skinColor(result.getString("skin_color"))
                     .alignment(result.getString("alignment"))
                     .weight(result.getInt("weight"))
                     .build());
@@ -48,7 +47,7 @@ public class HeroDaoImpl implements HeroDao{
     @Override
     public List<Hero> findByName(String name) {
 
-        var sql = "select * from heroes_information where Name = '" + name + "'";
+        var sql = "select * from heroes where name = '" + name + "'";
         try (var connection = dataSource.getConnection();
              var statement = connection.createStatement()) {
             var result = statement.executeQuery(sql);
@@ -61,9 +60,9 @@ public class HeroDaoImpl implements HeroDao{
     @Override
     public Hero create(Hero hero) {
 
-    var sql = "insert into heroes_information (Name, gender, Eye color, race, Hair color, height, publisher_id, Skin color, alignment, weight) " +
+    var sql = "insert into heroes (name, gender, eye_color, race, hair_color, height, skin_color, alignment, weight) " +
             "values ('" + hero.getName() + "', '" + hero.getGender() + "', '" + hero.getEyeColor() + "', '" + hero.getRace() + "', '" +
-            hero.getHairColor() + "', " + hero.getHeight() + ", " + hero.getPublisher_id() + ", '" + hero.getSkinColor() + "', '" +
+            hero.getHairColor() + "', " + hero.getHeight() + ", '" + hero.getSkinColor() + "', '" +
             hero.getAlignment() + "', " + hero.getWeight() + ")";
         try (var connection = dataSource.getConnection();
             var statement = connection.createStatement()) {
@@ -77,15 +76,14 @@ public class HeroDaoImpl implements HeroDao{
     @Override
     public Hero update(Hero hero) {
 
-        var sql = "update heroes_information set " +
-                "Name ='"  + hero.getName() + "', " +
+        var sql = "update heroes set " +
+                "name ='"  + hero.getName() + "', " +
                 "gender ='" + hero.getGender() + "', " +
-                "Eye color ='" + hero.getEyeColor() + "', " +
+                "eye_color ='" + hero.getEyeColor() + "', " +
                 "race ='" + hero.getRace() + "', " +
-                "Hair color ='" + hero.getHairColor() + "', " +
+                "hair_color ='" + hero.getHairColor() + "', " +
                 "height =" + hero.getHeight() + ", " +
-                "publisher_id =" + hero.getPublisher_id() + ", " +
-                "Skin color ='" + hero.getSkinColor() + "', " +
+                "skin_color ='" + hero.getSkinColor() + "', " +
                 "alignment ='" + hero.getAlignment() + "', " +
                 "weight =" + hero.getWeight() + " " +
                 "where id =" + hero.getId();
@@ -101,7 +99,7 @@ public class HeroDaoImpl implements HeroDao{
     @Override
     public boolean delete(Long id) {
 
-        var sql = "delete from heroes_information where id = '" + id + "'";
+        var sql = "delete from heroes where id = '" + id + "'";
         try (var connection = dataSource.getConnection();
              var statement = connection.createStatement()) {
             statement.executeUpdate(sql);
@@ -113,7 +111,7 @@ public class HeroDaoImpl implements HeroDao{
 
     @Override
     public Hero findById(Long id) {
-        var sql = "select * from heroes_information where id = " + id + "";
+        var sql = "select * from heroes where id = " + id + "";
         try (var connection = dataSource.getConnection();
              var statement = connection.createStatement()) {
             var result = statement.executeQuery(sql);
