@@ -111,7 +111,9 @@ public class HeroDaoImpl implements HeroDao{
 
     @Override
     public Hero findById(Long id) {
+
         var sql = "select * from heroes where id = " + id + "";
+
         try (var connection = dataSource.getConnection();
              var statement = connection.createStatement()) {
             var result = statement.executeQuery(sql);
