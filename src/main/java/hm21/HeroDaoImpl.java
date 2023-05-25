@@ -119,7 +119,7 @@ public class HeroDaoImpl implements HeroDao{
             var result = statement.executeQuery(sql);
             return mapHeroes(result).stream()
                     .findFirst()
-                    .orElseThrow();
+                    .orElse(null);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
