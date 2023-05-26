@@ -44,5 +44,6 @@ public class SpringMvcController {
     public String create(Hero hero) {
         heroDao.create(hero);
         return "redirect:/";
+
     }
 }
