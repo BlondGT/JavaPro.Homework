@@ -43,6 +43,7 @@ public class SpringMvcController {
     @PostMapping("/add")
     public String create(Hero hero) {
         heroDao.create(hero);
-        return "redirect:/index";
+        return "redirect:/";
+
     }
 }
