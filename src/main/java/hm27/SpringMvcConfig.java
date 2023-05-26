@@ -1,28 +1,23 @@
-package hm24;
+package hm27;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import hm21.HeroDao;
-import hm22.HeroFabric;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import hm21.HeroDaoImpl;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 
-//@SpringBootApplication
-public class RestApplication {
-
-    public static void main(String[] args) {
-
-        SpringApplication.run(RestApplication.class, args);
-    }
+@Configuration
+public class SpringMvcConfig {
 
     @Bean
     public HeroDao heroDao() {
-        return HeroFabric.createDao(hikariDataSource());
+        return new HeroDaoImpl(hikariDataSource());
     }
 
+    @Bean
     private static DataSource hikariDataSource() {
         var config = new HikariConfig();
         config.setJdbcUrl("jdbc:postgresql://localhost:5432/postgres");
