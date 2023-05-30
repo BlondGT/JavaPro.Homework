@@ -30,7 +30,8 @@ public class SpringDataUserService {
         return userRepository.save(user);
     }
 
-    public void deleteUser(Long id) {
+    public boolean deleteUser(Long id) {
         userRepository.deleteById(id);
+        return true;
     }
 }

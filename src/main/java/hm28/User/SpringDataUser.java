@@ -20,5 +20,6 @@ public class SpringDataUser {
     private String uid;
     private String name;
     private String email;
+    @Enumerated(EnumType.STRING)
     private UserRole role;
 }
