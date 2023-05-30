@@ -35,7 +35,7 @@ public class SpringDataUserApplication implements CommandLineRunner {
                 .uid(uid.toString())
                 .role(UserRole.CUSTOMER)
                 .build()));
-        System.out.println(userService.updateUser(SpringDataUser.builder().build()));
-        System.out.println(userService.deleteUser(16L));
+        System.out.println(userService.updateUser(uid.toString(), "Test2"));
+        System.out.println(userService.deleteUser("4df18f06-89fd-4d01-a144-42a66c29b504"));
     }
 }

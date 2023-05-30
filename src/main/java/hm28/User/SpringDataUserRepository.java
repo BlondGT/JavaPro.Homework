@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SpringDataUserRepository extends JpaRepository<SpringDataUser, Long> {
+
+    SpringDataUser findByUid(String uid);
 }

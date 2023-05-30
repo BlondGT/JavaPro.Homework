@@ -7,7 +7,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class SpringDataUserService {
 
@@ -26,12 +25,16 @@ public class SpringDataUserService {
         return userRepository.findAll();
     }
 
-    public SpringDataUser updateUser(SpringDataUser user) {
-        return userRepository.save(user);
+    @Transactional
+    public SpringDataUser updateUser(String uid, String newName) {
+       var user = userRepository.findByUid(uid);
+       user.setName(newName);
+       return user;
     }
 
-    public boolean deleteUser(Long id) {
-        userRepository.deleteById(id);
+    public boolean deleteUser(String uid) {
+        var user = userRepository.findByUid(uid);
+        userRepository.delete(user);
         return true;
     }
 }
