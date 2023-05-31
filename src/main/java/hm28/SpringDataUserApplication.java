@@ -27,15 +27,15 @@ public class SpringDataUserApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        System.out.println(userService.getAllUsers());
-        System.out.println(userService.getUserById(3L));
-        System.out.println(userService.createUser(SpringDataUser.builder()
-                .name("Test")
-                .email("test@gmail.com")
+        System.out.println("Users: " + userService.getAllUsers());
+        System.out.println("User: " + userService.getUserById(3L));
+        System.out.println("New user: " + userService.createUser(SpringDataUser.builder()
+                .name("Test3")
+                .email("test3@gmail.com")
                 .uid(uid.toString())
                 .role(UserRole.CUSTOMER)
                 .build()));
-        System.out.println(userService.updateUser(uid.toString(), "Test2"));
-        System.out.println(userService.deleteUser("4df18f06-89fd-4d01-a144-42a66c29b504"));
+        System.out.println(userService.updateUser(uid.toString(), "TestUpdate"));
+        System.out.println(userService.deleteUser("14c4d17d-e90c-4342-ab8a-4d2abe476ebe"));
     }
 }
