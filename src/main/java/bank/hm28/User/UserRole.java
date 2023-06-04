@@ -1,4 +1,4 @@
-package hm28.User;
+package bank.hm28.User;
 
 public enum UserRole {
     CUSTOMER,

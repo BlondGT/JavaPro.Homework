@@ -37,19 +37,19 @@ public class DummyHeroDao implements HeroDao {
 
     @Override
     public Hero update(Hero hero) {
-       if(delete(hero.getId()))
-           db.add(hero);
+        if (delete(hero.getId()))
+            db.add(hero);
         return hero;
     }
 
     @Override
     public boolean delete(Long id) {
-       var heroDel = db.stream()
-               .filter(hero -> hero.getId().equals(id))
-               .findAny()
-               .orElseThrow();
+        var heroDel = db.stream()
+                .filter(hero -> hero.getId().equals(id))
+                .findAny()
+                .orElseThrow();
 
-       return db.remove(heroDel);
+        return db.remove(heroDel);
     }
 }
 

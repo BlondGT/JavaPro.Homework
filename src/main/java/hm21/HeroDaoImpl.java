@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RequiredArgsConstructor
-public class HeroDaoImpl implements HeroDao{
+public class HeroDaoImpl implements HeroDao {
 
     private final DataSource dataSource;
 
@@ -60,12 +60,12 @@ public class HeroDaoImpl implements HeroDao{
     @Override
     public Hero create(Hero hero) {
 
-    var sql = "insert into heroes (name, gender, eye_color, race, hair_color, height, skin_color, alignment, weight) " +
-            "values ('" + hero.getName() + "', '" + hero.getGender() + "', '" + hero.getEyeColor() + "', '" + hero.getRace() + "', '" +
-            hero.getHairColor() + "', " + hero.getHeight() + ", '" + hero.getSkinColor() + "', '" +
-            hero.getAlignment() + "', " + hero.getWeight() + ")";
+        var sql = "insert into heroes (name, gender, eye_color, race, hair_color, height, skin_color, alignment, weight) " +
+                "values ('" + hero.getName() + "', '" + hero.getGender() + "', '" + hero.getEyeColor() + "', '" + hero.getRace() + "', '" +
+                hero.getHairColor() + "', " + hero.getHeight() + ", '" + hero.getSkinColor() + "', '" +
+                hero.getAlignment() + "', " + hero.getWeight() + ")";
         try (var connection = dataSource.getConnection();
-            var statement = connection.createStatement()) {
+             var statement = connection.createStatement()) {
             statement.executeUpdate(sql);
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -77,7 +77,7 @@ public class HeroDaoImpl implements HeroDao{
     public Hero update(Hero hero) {
 
         var sql = "update heroes set " +
-                "name ='"  + hero.getName() + "', " +
+                "name ='" + hero.getName() + "', " +
                 "gender ='" + hero.getGender() + "', " +
                 "eye_color ='" + hero.getEyeColor() + "', " +
                 "race ='" + hero.getRace() + "', " +

@@ -1,6 +1,6 @@
 package hm17;
 
-import lombok.*;
+import lombok.Value;
 
 @Value
 public class HeroValue {

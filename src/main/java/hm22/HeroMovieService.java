@@ -14,7 +14,7 @@ public class HeroMovieService {
     }
 
     public List<String> getPlayedIn(String heroName) {
-       List<String> movies = heroMovies.get(heroName);
+        List<String> movies = heroMovies.get(heroName);
         if (movies == null) {
             return new ArrayList<>();
         }

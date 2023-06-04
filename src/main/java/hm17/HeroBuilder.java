@@ -1,6 +1,7 @@
 package hm17;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
 
 @Getter
 @Builder

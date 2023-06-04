@@ -21,7 +21,7 @@ public class HeroFabric {
         return new HeroService(new DummyHeroDao(heroes), heroMovieService());
     }
 
-    private static HeroMovieService heroMovieService(){
+    private static HeroMovieService heroMovieService() {
         return new HeroMovieService();
     }
 

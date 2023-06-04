@@ -9,7 +9,7 @@ public record Hero(
         double height,
         String publisher,
         String skinColor,
-        String alignment ,
+        String alignment,
         int weight
 ) {
 }

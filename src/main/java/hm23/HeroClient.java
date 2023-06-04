@@ -16,14 +16,14 @@ public class HeroClient {
 
         var scanner = new Scanner(System.in);
 
-        try(var heroSocket = new Socket(SERVER_HOST, SERVER_PORT)) {
+        try (var heroSocket = new Socket(SERVER_HOST, SERVER_PORT)) {
             var out = new PrintWriter(heroSocket.getOutputStream(), true);
             var in = new BufferedReader(new InputStreamReader(heroSocket.getInputStream()));
 
             String userInput;
             while ((userInput = scanner.nextLine()) != null) {
                 out.println(userInput);
-                if(userInput.equals("exit")) {
+                if (userInput.equals("exit")) {
                     break;
                 }
                 System.out.println("Server: " + in.readLine());

@@ -1,8 +1,8 @@
-package hm28;
+package bank.hm28;
 
-import hm28.User.SpringDataUser;
-import hm28.User.SpringDataUserService;
-import hm28.User.UserRole;
+import bank.hm28.User.SpringDataUser;
+import bank.hm28.User.SpringDataUserService;
+import bank.hm28.User.UserRole;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

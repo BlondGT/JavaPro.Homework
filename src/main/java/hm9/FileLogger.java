@@ -24,20 +24,28 @@ public class FileLogger {
         }
     }
 
+    public static void main(String[] args) throws IOException {
+
+        var config = new FileLoggerConfiguration("logs9", LoggingLevel.INFO, 100);
+        var logger = new FileLogger(config);
+
+        logger.info("message");
+        logger.debug("message");
+    }
+
     public void info(String message) throws IOException {
 
-       log(LoggingLevel.INFO, message);
+        log(LoggingLevel.INFO, message);
     }
 
     public void debug(String message) throws IOException {
 
-        if(configuration.level() == LoggingLevel.INFO) {
+        if (configuration.level() == LoggingLevel.INFO) {
             return;
         }
 
         log(LoggingLevel.DEBUG, message);
     }
-
 
     private void log(LoggingLevel level, String message) throws IOException {
 
@@ -46,27 +54,17 @@ public class FileLogger {
         String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy.MM.dd-hh.mm.ss"));
         String outputMessage = String.format("%s [%s] Message: %s", time, level, message);
 
-           var fileSize =file.exists() ? Files.size(file.toPath()) : 0;
-           if (fileSize + outputMessage.getBytes(UTF_8).length > configuration.maxSize()) {
-                throw new RuntimeException("FileMaxSizeReachException");
+        var fileSize = file.exists() ? Files.size(file.toPath()) : 0;
+        if (fileSize + outputMessage.getBytes(UTF_8).length > configuration.maxSize()) {
+            throw new RuntimeException("FileMaxSizeReachException");
 
         }
 
-        try(var writer = new FileWriter(file, true)) {
+        try (var writer = new FileWriter(file, true)) {
             writer.write(outputMessage);
             writer.write("\n");
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public static void main(String[] args) throws IOException {
-
-        var config = new FileLoggerConfiguration("logs9", LoggingLevel.INFO, 100);
-        var logger = new FileLogger(config);
-
-        logger.info("message");
-        logger.debug("message");
     }
 }

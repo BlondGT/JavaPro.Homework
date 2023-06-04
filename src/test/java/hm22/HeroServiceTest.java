@@ -7,7 +7,7 @@ import org.mockito.Mockito;
 
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HeroServiceTest {
 
@@ -28,7 +28,7 @@ class HeroServiceTest {
         Mockito.when(mockHeroMovieService.getPlayedIn("Spider-man")).thenReturn(List.of("zxc", "vbn"));
 
 
-        HeroService target = new HeroService(mockHeroDao,mockHeroMovieService);
+        HeroService target = new HeroService(mockHeroDao, mockHeroMovieService);
         var heroes = target.getHeroes();
 
         List<HeroDto> expected = List.of(

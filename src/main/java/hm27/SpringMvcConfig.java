@@ -13,16 +13,16 @@ import javax.sql.DataSource;
 public class SpringMvcConfig {
 
     @Bean
-    public HeroDao heroDao() {
-        return new HeroDaoImpl(hikariDataSource());
-    }
-
-    @Bean
     private static DataSource hikariDataSource() {
         var config = new HikariConfig();
         config.setJdbcUrl("jdbc:postgresql://localhost:5432/postgres");
         config.setUsername("postgres");
         config.setPassword("postgres");
         return new HikariDataSource(config);
+    }
+
+    @Bean
+    public HeroDao heroDao() {
+        return new HeroDaoImpl(hikariDataSource());
     }
 }

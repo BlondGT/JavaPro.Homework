@@ -61,8 +61,7 @@ public class HeroServer {
                     } else {
                         out.println("Not found...");
                     }
-                }
-                else if (clientCommand.equalsIgnoreCase("exit")) {
+                } else if (clientCommand.equalsIgnoreCase("exit")) {
                     break;
                 } else {
                     out.println("Wrong command! Try again!");

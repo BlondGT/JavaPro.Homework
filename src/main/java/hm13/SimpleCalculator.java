@@ -4,18 +4,18 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 
-
 public class SimpleCalculator {
 
     public static CompletableFuture<Integer> squareSum(int first, int second) {
 
         return CompletableFuture.supplyAsync(() -> {
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            return first * second;})
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                    return first * second;
+                })
                 .thenApply(sum -> sum * 2);
     }
 

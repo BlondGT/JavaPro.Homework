@@ -1,4 +1,4 @@
-package hm28.User;
+package bank.hm28.User;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -27,9 +27,9 @@ public class SpringDataUserService {
 
     @Transactional
     public SpringDataUser updateUser(String uid, String newName) {
-       var user = userRepository.findByUid(uid);
-       user.setName(newName);
-       return user;
+        var user = userRepository.findByUid(uid);
+        user.setName(newName);
+        return user;
     }
 
     public boolean deleteUser(String uid) {

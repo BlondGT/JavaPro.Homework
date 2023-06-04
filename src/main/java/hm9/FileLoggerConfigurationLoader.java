@@ -20,7 +20,7 @@ public class FileLoggerConfigurationLoader {
 
     public static void main(String[] args) throws IOException {
 
-       var config =  load("/logs-config.properties");
+        var config = load("/logs-config.properties");
 
         System.out.println(config);
     }
