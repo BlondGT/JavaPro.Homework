@@ -1,33 +1,33 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<form action="#" th:action="@{/add}" th:object="${hero}" method="post">
+<form action="#" method="post" th:action="@{/add}" th:object="${hero}">
     <label for="name">Name</label>
-    <input type="text" th:field="*{name}" id="name" placeholder="Name">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+    <input id="name" placeholder="Name" th:field="*{name}" type="text">
+    <span th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></span>
     <label for="gender">Gender</label>
-    <input type="text" th:field="*{gender}" id="gender" placeholder="Gender">
-    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span>
+    <input id="gender" placeholder="Gender" th:field="*{gender}" type="text">
+    <span th:errors="*{gender}" th:if="${#fields.hasErrors('gender')}"></span>
     <label for="eyeColor">Eye Color</label>
-    <input type="text" th:field="*{eyeColor}" id="eyeColor" placeholder="Eye Color">
-    <span th:if="${#fields.hasErrors('eyeColor')}" th:errors="*{EyeColor}"></span>
+    <input id="eyeColor" placeholder="Eye Color" th:field="*{eyeColor}" type="text">
+    <span th:errors="*{EyeColor}" th:if="${#fields.hasErrors('eyeColor')}"></span>
     <label for="race">Race</label>
-    <input type="text" th:field="*{race}" id="race" placeholder="Race">
-    <span th:if="${#fields.hasErrors('race')}" th:errors="*{race}"></span>
+    <input id="race" placeholder="Race" th:field="*{race}" type="text">
+    <span th:errors="*{race}" th:if="${#fields.hasErrors('race')}"></span>
     <label for="hairColor">Hair Color</label>
-    <input type="text" th:field="*{hairColor}" id="hairColor" placeholder="Hair Color">
-    <span th:if="${#fields.hasErrors('hairColor')}" th:errors="*{hairColor}"></span>
+    <input id="hairColor" placeholder="Hair Color" th:field="*{hairColor}" type="text">
+    <span th:errors="*{hairColor}" th:if="${#fields.hasErrors('hairColor')}"></span>
     <label for="height">Height</label>
-    <input type="text" th:field="*{height}" id="height" placeholder="Height">
-    <span th:if="${#fields.hasErrors('height')}" th:errors="*{height}"></span>
+    <input id="height" placeholder="Height" th:field="*{height}" type="text">
+    <span th:errors="*{height}" th:if="${#fields.hasErrors('height')}"></span>
     <label for="skinColor">Skin Color</label>
-    <input type="text" th:field="*{skinColor}" id="skinColor" placeholder="Skin Color">
-    <span th:if="${#fields.hasErrors('skinColor')}" th:errors="*{skinColor}"></span>
+    <input id="skinColor" placeholder="Skin Color" th:field="*{skinColor}" type="text">
+    <span th:errors="*{skinColor}" th:if="${#fields.hasErrors('skinColor')}"></span>
     <label for="alignment">Alignment</label>
-    <input type="text" th:field="*{alignment}" id="alignment" placeholder="Alignment">
-    <span th:if="${#fields.hasErrors('alignment')}" th:errors="*{alignment}"></span>
+    <input id="alignment" placeholder="Alignment" th:field="*{alignment}" type="text">
+    <span th:errors="*{alignment}" th:if="${#fields.hasErrors('alignment')}"></span>
     <label for="weight">Weight</label>
-    <input type="text" th:field="*{weight}" id="weight" placeholder="Weight">
-    <span th:if="${#fields.hasErrors('weight')}" th:errors="*{weight}"></span>
+    <input id="weight" placeholder="Weight" th:field="*{weight}" type="text">
+    <span th:errors="*{weight}" th:if="${#fields.hasErrors('weight')}"></span>
     <input type="submit" value="Create">
 </form>
 </body>

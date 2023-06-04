@@ -22,7 +22,7 @@ public class ProductOperations {
             (List<Product> products, String category) {
         return products.stream()
                 .filter(product -> product.category().equals(category))
-                .filter (Product::discount)
+                .filter(Product::discount)
                 .map(product -> new Product(product.category(), product.price() * 0.9, true, product.creationDate()))
                 .collect(Collectors.toList());
     }
@@ -34,6 +34,7 @@ public class ProductOperations {
                 .min(comparing(Product::price))
                 .orElseThrow());
     }
+
     public static List<Product> findLastCreated(List<Product> products) {
         return products.stream()
                 .sorted(comparing(Product::creationDate).reversed())
@@ -44,9 +45,9 @@ public class ProductOperations {
     public static double findTotalPriceInCategoryAndYear
             (List<Product> products, String category, Year year) {
         return products.stream()
-                .filter(product -> product.creationDate().getYear()== year.getValue())
+                .filter(product -> product.creationDate().getYear() == year.getValue())
                 .filter(product -> product.category().equals(category))
-                .mapToDouble(Product :: price)
+                .mapToDouble(Product::price)
                 .sum();
     }
 

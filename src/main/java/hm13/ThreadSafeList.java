@@ -15,11 +15,10 @@ public class ThreadSafeList<T> {
 
     public void add(T value) {
 
-        if(readWriteLock.writeLock().tryLock()) {
+        if (readWriteLock.writeLock().tryLock()) {
             try {
                 list.add(value);
-            }
-            finally {
+            } finally {
                 readWriteLock.writeLock().unlock();
             }
         }
@@ -37,11 +36,10 @@ public class ThreadSafeList<T> {
     }
 
     public T get(int index) {
-        if(readWriteLock.writeLock().tryLock()) {
+        if (readWriteLock.writeLock().tryLock()) {
             try {
                 return list.get(index);
-            }
-            finally {
+            } finally {
                 readWriteLock.writeLock().unlock();
             }
         }

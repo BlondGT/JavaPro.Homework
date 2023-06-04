@@ -21,20 +21,20 @@ import javax.sql.DataSource;
 public class HibernateConfig {
 
     @Bean
-    public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
-        var sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource);
-        sessionFactory.setPackagesToScan("hm26");
-        return sessionFactory;
-    }
-
-    @Bean
     private static DataSource hikariDataSource() {
         var config = new HikariConfig();
         config.setJdbcUrl("jdbc:postgresql://localhost:5432/postgres");
         config.setUsername("postgres");
         config.setPassword("postgres");
         return new HikariDataSource(config);
+    }
+
+    @Bean
+    public LocalSessionFactoryBean sessionFactory(DataSource dataSource) {
+        var sessionFactory = new LocalSessionFactoryBean();
+        sessionFactory.setDataSource(dataSource);
+        sessionFactory.setPackagesToScan("hm26");
+        return sessionFactory;
     }
 
     @Bean

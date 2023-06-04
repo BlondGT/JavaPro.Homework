@@ -11,7 +11,7 @@ public class HeroFilters {
     public static double averageHeight(List<Hero> heroes) {
         return heroes.stream()
                 .filter(hero -> hero.height() > 0)
-                .mapToDouble(Hero::height )
+                .mapToDouble(Hero::height)
                 .average()
                 .orElse(0);
     }

@@ -26,7 +26,7 @@ public interface GenericHillelList<T> {
      *
      * @return індекс (0 - відповідає першому елементу), -1 - якщо не знайдено
      */
-     int indexOf(T item);
+    int indexOf(T item);
 
     /**
      * Розмір списка

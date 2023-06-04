@@ -3,7 +3,7 @@ package hm12;
 import java.util.Arrays;
 import java.util.Objects;
 
-public class GenericArray<T> implements  GenericHillelList<T>{
+public class GenericArray<T> implements GenericHillelList<T> {
 
     private T[] arrays = (T[]) new Object[0];
 
@@ -22,25 +22,16 @@ public class GenericArray<T> implements  GenericHillelList<T>{
 
     }
 
-    @SuppressWarnings("unchecked")
-    public T[] append(T[] arrays, T item) {
-        T[] arr = (T[]) new Object[arrays.length + 1];
-        System.arraycopy(arrays, 0, arr, 0, arrays.length);
-        arr[arrays.length] = item;
-        return arr;
-    }
-
-    public static<T> T[] removeElement(T[] arrays, int index) {
+    public static <T> T[] removeElement(T[] arrays, int index) {
 
         T[] arrDestination = (T[]) new Object[arrays.length - 1];
-        int remainingElement =arrays.length - (index + 1);
+        int remainingElement = arrays.length - (index + 1);
         System.arraycopy(arrays, 0, arrDestination, 0, index);
         System.arraycopy(arrays, index + 1, arrDestination, index, remainingElement);
         return arrDestination;
     }
 
-
-    public static<T> int findIndexOf(T[] arr, T item) {
+    public static <T> int findIndexOf(T[] arr, T item) {
 
         for (int i = 0; i < arr.length; i++) {
             if (Objects.equals(arr[i], item)) {
@@ -50,6 +41,13 @@ public class GenericArray<T> implements  GenericHillelList<T>{
         return -1;
     }
 
+    @SuppressWarnings("unchecked")
+    public T[] append(T[] arrays, T item) {
+        T[] arr = (T[]) new Object[arrays.length + 1];
+        System.arraycopy(arrays, 0, arr, 0, arrays.length);
+        arr[arrays.length] = item;
+        return arr;
+    }
 
     @Override
     public void add(T item) {
@@ -60,7 +58,7 @@ public class GenericArray<T> implements  GenericHillelList<T>{
     @Override
     public T remove(int index) {
         T removeElement = arrays[index];
-        arrays = removeElement (arrays, index);
+        arrays = removeElement(arrays, index);
         return removeElement;
     }
 
@@ -73,7 +71,7 @@ public class GenericArray<T> implements  GenericHillelList<T>{
     @Override
     public int indexOf(T item) {
 
-        return findIndexOf(arrays,item);
+        return findIndexOf(arrays, item);
     }
 
     @Override

@@ -11,9 +11,9 @@ public class FileNavigator {
 // Якщо шлях вже існує, новий файл необхідно додати до списку, вже пов'язаному з відповідним шляхом.
 // ВАЖЛИВО: Шлях – унікальне значення і не повинно повторюватися.
 
-    public void add(String path, FileData file) throws InconsistentPathException{
+    public void add(String path, FileData file) throws InconsistentPathException {
 
-        if(files.containsKey(path)) {
+        if (files.containsKey(path)) {
             if (!path.equals(file.getPath())) throw new InconsistentPathException("Wrong path!!!");
             List<FileData> existingFile = files.get(path);
             List<FileData> newFile = new ArrayList<>(existingFile);
@@ -35,7 +35,7 @@ public class FileNavigator {
 //    4. Реалізувати метод filterBySize у класі FileNavigator. Метод повертає список файлів,
 //    розмір (в байтах) яких не перевищує значення, передане як параметр.
 
-    public List<FileData> filterBySize (int maxSize) {
+    public List<FileData> filterBySize(int maxSize) {
 
         List<FileData> filterFile = new ArrayList<>();
 
@@ -63,7 +63,7 @@ public class FileNavigator {
 
         List<FileData> allFiles = new ArrayList<>();
 
-        for(List<FileData> fileData : files.values()) {
+        for (List<FileData> fileData : files.values()) {
             allFiles.addAll(fileData);
         }
         allFiles.sort(Comparator.comparingLong(FileData::getSize));

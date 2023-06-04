@@ -28,7 +28,7 @@ class GenericArrayTest {
         genericArray.add("it");
 
         assertEquals("it", genericArray.remove(1));
-        assertArrayEquals(new String[] {"gh"}, genericArray.toArray());
+        assertArrayEquals(new String[]{"gh"}, genericArray.toArray());
     }
 
     @Test
@@ -37,7 +37,7 @@ class GenericArrayTest {
         GenericArray<String> genericArray = new GenericArray<>();
         genericArray.add("gh");
 
-        assertArrayEquals(new String[] {"gh"}, genericArray.toArray());
+        assertArrayEquals(new String[]{"gh"}, genericArray.toArray());
     }
 
     @Test
@@ -90,7 +90,7 @@ class GenericArrayTest {
         genericArray.add("gh");
         genericArray.add("it");
 
-        assertArrayEquals(new String[] {"gh", "it"}, genericArray.toArray());
+        assertArrayEquals(new String[]{"gh", "it"}, genericArray.toArray());
     }
 
     @Test
@@ -101,7 +101,7 @@ class GenericArrayTest {
         genericArray.add("gh");
         genericArray.add("it");
 
-        assertArrayEquals(new String[] {"gh", "it"}, genericArray.toArray(new String[0]));
+        assertArrayEquals(new String[]{"gh", "it"}, genericArray.toArray(new String[0]));
     }
 
 }

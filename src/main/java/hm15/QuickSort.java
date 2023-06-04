@@ -16,10 +16,10 @@ public class QuickSort {
         int pivot = array[end];
         int pIndex = start;
 
-        for(int i = start; i < end; i++) {
-            if(array[i] <= pivot) {
-            swap(array, i, pIndex);
-            pIndex++;
+        for (int i = start; i < end; i++) {
+            if (array[i] <= pivot) {
+                swap(array, i, pIndex);
+                pIndex++;
             }
         }
         swap(array, end, pIndex);
@@ -28,7 +28,7 @@ public class QuickSort {
 
     public static void quickSort(int[] array, int start, int end) {
 
-        if(start >= end) {
+        if (start >= end) {
             return;
         }
         int pivot = partition(array, start, end);

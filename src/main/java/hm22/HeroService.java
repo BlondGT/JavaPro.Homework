@@ -17,10 +17,10 @@ public class HeroService {
     public List<HeroDto> getHeroes() {
         return dao.findAll().stream()
                 .map(hero ->
-                    new HeroDto.Builder()
-                            .withName(hero.getName())
-                            .withMovies(heroMovieService.getPlayedIn(hero.getName()))
-                            .build()
+                        new HeroDto.Builder()
+                                .withName(hero.getName())
+                                .withMovies(heroMovieService.getPlayedIn(hero.getName()))
+                                .build()
                 )
                 .toList();
     }

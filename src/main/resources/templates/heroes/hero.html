@@ -4,43 +4,43 @@
 <p th:text="'Hello, ' + ${name} + '!'"></p>
 
 <div th:switch="${hero}">
-  <h2 th:case="null">Hero not found!</h2>
-  <div th:case="*">
-    <h2>Hero Details</h2>
-    <table>
-      <thead>
-      <tr>
-        <th>Name</th>
-        <th>Gender</th>
-        <th>Eye Color</th>
-        <th>Race</th>
-        <th>Hair Color</th>
-        <th>Height</th>
-        <th>Skin Color</th>
-        <th>Alignment</th>
-        <th>Weight</th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td th:text="${hero.name}"></td>
-        <td th:text="${hero.gender}"></td>
-        <td th:text="${hero.eyeColor}"></td>
-        <td th:text="${hero.race}"></td>
-        <td th:text="${hero.hairColor}"></td>
-        <td th:text="${hero.height}"></td>
-        <td th:text="${hero.skinColor}"></td>
-        <td th:text="${hero.alignment}"></td>
-        <td th:text="${hero.weight}"></td>
-        <td><a th:href="@{/edit/{id}(id=${hero.id})}">Edit</a></td>
-        <td><a th:href="@{/delete/{id}(id=${hero.id})}">Delete</a></td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <p><a href="/create">Add a new hero</a></p>
+    <h2 th:case="null">Hero not found!</h2>
+    <div th:case="*">
+        <h2>Hero Details</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Eye Color</th>
+                <th>Race</th>
+                <th>Hair Color</th>
+                <th>Height</th>
+                <th>Skin Color</th>
+                <th>Alignment</th>
+                <th>Weight</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td th:text="${hero.name}"></td>
+                <td th:text="${hero.gender}"></td>
+                <td th:text="${hero.eyeColor}"></td>
+                <td th:text="${hero.race}"></td>
+                <td th:text="${hero.hairColor}"></td>
+                <td th:text="${hero.height}"></td>
+                <td th:text="${hero.skinColor}"></td>
+                <td th:text="${hero.alignment}"></td>
+                <td th:text="${hero.weight}"></td>
+                <td><a th:href="@{/edit/{id}(id=${hero.id})}">Edit</a></td>
+                <td><a th:href="@{/delete/{id}(id=${hero.id})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/create">Add a new hero</a></p>
 </div>
 
 </body>
