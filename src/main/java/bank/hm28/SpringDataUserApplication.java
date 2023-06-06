@@ -7,13 +7,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.UUID;
 
 @Slf4j
-@SpringBootApplication
+//@SpringBootApplication
 @RequiredArgsConstructor
 @EntityScan("hm28.User")
 public class SpringDataUserApplication implements CommandLineRunner {
