@@ -13,7 +13,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import java.util.UUID;
 
 @Slf4j
-@SpringBootApplication
+//@SpringBootApplication
 @RequiredArgsConstructor
 @EntityScan("hm28.User")
 public class SpringDataUserApplication implements CommandLineRunner {
