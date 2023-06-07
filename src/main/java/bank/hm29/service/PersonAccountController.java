@@ -30,7 +30,7 @@ public class PersonAccountController {
     }
 
     @PutMapping("/persons/{personId}/accounts/{accountId}")
-    public AccountDto updateAccount(@PathVariable("personId") String accountUid, @RequestBody AccountDto accountDto) {
+    public AccountDto updateAccount(@PathVariable("accountId") String accountUid, @RequestBody AccountDto accountDto) {
         return service.updateAccount(accountUid, accountDto);
     }
 
