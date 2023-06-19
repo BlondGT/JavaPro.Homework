@@ -1,6 +1,5 @@
-package bank.hm31.dummy;
+package bank.hm31;
 
-import bank.hm31.CurrencyConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +11,7 @@ import java.util.Currency;
 @RestController
 @RequestMapping("/currencies")
 @RequiredArgsConstructor
-public class DummyCurrencyController {
+public class CurrencyController {
 
     private final CurrencyConverter converter;
 

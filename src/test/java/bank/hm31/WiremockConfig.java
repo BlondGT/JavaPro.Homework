@@ -1,4 +1,4 @@
-package bank.hm31.dummy;
+package bank.hm31;
 
 import com.github.tomakehurst.wiremock.WireMockServer;
 import jakarta.annotation.PostConstruct;
