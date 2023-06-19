@@ -1,15 +1,12 @@
 package bank.hm31;
 
 import bank.hm31.config.CurrencyApiProperties;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import bank.hm31.response.CurrencyApiResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Currency;
-import java.util.Map;
 
-@Component
 @RequiredArgsConstructor
 public class CurrencyApiCurrencyConverter implements CurrencyConverter {
 
@@ -25,26 +22,15 @@ public class CurrencyApiCurrencyConverter implements CurrencyConverter {
                         .queryParam("currencies", to.getCurrencyCode())
                         .build())
                 .retrieve()
-                .bodyToMono(Map.class)
+                .bodyToMono(CurrencyApiResponse.class)
+//                .bodyToMono(Map.class)
                 .block();
 
-        Map<String, Object> data = (Map<String, Object>) result.get("data");
-        Map<String, Object> eur = (Map<String, Object>) data.get("EUR");
+        return result.getData().get("EUR").getValue() * amount;
 
-        return (double) eur.get("value") * amount;
-    }
-
-    public static void main(String[] args) {
-
-        CurrencyApiProperties properties1 = new CurrencyApiProperties();
-        properties1.setKey("G986HQi2QuiGYxezpN56JR5oHOd6fmNOdVnoObqp");
-        properties1.setUrl("https://api.currencyapi.com/v3/latest");
-
-        CurrencyApiCurrencyConverter converter = new CurrencyApiCurrencyConverter(properties1);
-        var convertedAmount = converter.convert(
-                Currency.getInstance("UAH"),
-                Currency.getInstance("EUR"),
-                100.00);
-        System.out.println(convertedAmount);
+//        Map<String, Object> data = (Map<String, Object>) result.get("data");
+//        Map<String, Object> eur = (Map<String, Object>) data.get("EUR");
+//
+//        return (double) eur.get("value") * amount;
     }
 }

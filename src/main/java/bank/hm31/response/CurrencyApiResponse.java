@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Map;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -12,5 +14,5 @@ import lombok.NoArgsConstructor;
 public class CurrencyApiResponse {
 
     private CurrencyApiResponseMeta meta;
-    private CurrencyApiResponseData data;
+    private Map<String, ResponseCode> data;
 }

@@ -2,14 +2,12 @@ package bank.hm31.dummy;
 
 import bank.hm31.CurrencyConverter;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Currency;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
 @ActiveProfiles("test")
 class DummyCurrencyConverterTest {
 

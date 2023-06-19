@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ResponseCode {
 
-    private Code code;
-    private Value value;
+    private String code;
+    private Double value;
 }
 
