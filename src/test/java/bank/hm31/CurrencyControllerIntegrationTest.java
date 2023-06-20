@@ -29,6 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @ActiveProfiles("test")
 class CurrencyControllerIntegrationTest {
 
+    @Autowired
     protected WireMockServer wireMockServer;
 
     @Autowired
@@ -40,7 +41,7 @@ class CurrencyControllerIntegrationTest {
     @DynamicPropertySource
     public static void registerWiremockBaseUrl(DynamicPropertyRegistry registry) {
 
-        registry.add("wiremock:baseurl", WiremockConfig.wireMockServer::baseUrl);
+        registry.add("wiremock.baseurl", WiremockConfig.wireMockServer::baseUrl);
     }
 
     @Test
@@ -56,8 +57,8 @@ class CurrencyControllerIntegrationTest {
                         .build()))
                 .build();
 
-        wireMockServer.stubFor(WireMock.get(WireMock.urlEqualTo("/apiCurrency"))
-                .withQueryParam("apikey", equalTo("098765"))
+        wireMockServer.stubFor(WireMock.get(WireMock.urlPathEqualTo("/apiCurrency"))
+                .withQueryParam("apikey", equalTo("12345"))
                 .withQueryParam("base_currency", equalTo("UAH"))
                 .withQueryParam("currencies", equalTo("EUR"))
                 .willReturn(aResponse()
@@ -75,8 +76,8 @@ class CurrencyControllerIntegrationTest {
                 .getResponse()
                 .getContentAsString();
 
-        var result = objectMapper.readValue(response, CurrencyApiResponse.class);
+        var result = Double.parseDouble(response);
 
-        assertEquals(25, result.getData().get("EUR").getValue());
+        assertEquals(25.0, result);
     }
 }
