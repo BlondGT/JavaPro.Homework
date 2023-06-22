@@ -3,10 +3,12 @@ package bank.hm31;
 import bank.hm31.config.CurrencyApiProperties;
 import bank.hm31.response.CurrencyApiResponse;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Currency;
 
+@Slf4j
 @RequiredArgsConstructor
 public class CurrencyApiCurrencyConverter implements CurrencyConverter {
 
