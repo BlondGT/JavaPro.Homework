@@ -1,9 +1,6 @@
 package bank.hm33;
 
 import bank.hm31.CurrencyConverter;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Currency;
@@ -12,14 +9,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Slf4j
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-
 public class PersonOperationService {
 
-    private CurrencyConverter converter;
-    private ExecutorService executor = Executors.newSingleThreadExecutor();
+    private final CurrencyConverter converter;
+    private final ExecutorService executor = Executors.newSingleThreadExecutor();
 
     public PersonOperationService(CurrencyConverter converter) {
         this.converter = converter;
