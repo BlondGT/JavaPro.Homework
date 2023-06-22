@@ -17,6 +17,7 @@ class PersonOperationServiceTest {
     void shouldConvert() throws ExecutionException, InterruptedException {
 
         var mockCurrencyConverter = Mockito.mock(CurrencyConverter.class);
+
         double amount = 100;
         Mockito.when(mockCurrencyConverter.convert(
                 Currency.getInstance("UAH"),
@@ -24,7 +25,7 @@ class PersonOperationServiceTest {
                 amount))
                 .thenReturn(0.25);
 
-        PersonOperationService target = new PersonOperationService();
+        PersonOperationService target = new PersonOperationService(mockCurrencyConverter);
         CompletableFuture<Double> resultFuture = target.convert(
                 Currency.getInstance("UAH"),
                 Currency.getInstance("EUR"),
