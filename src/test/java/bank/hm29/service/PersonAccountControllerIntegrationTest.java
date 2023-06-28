@@ -66,24 +66,28 @@ class PersonAccountControllerIntegrationTest {
                 .uid("uuid1")
                 .iban("UA000000000000000000000123456789")
                 .balance(4500.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(1L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid2")
                 .iban("UA000000000000000000000987654321")
                 .balance(2700.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(2L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid3")
                 .iban("UA000000000000000000000918273645")
                 .balance(9000.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(3L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid4")
                 .iban("UA000000000000000000000123456789")
                 .balance(12000.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(2L))
                 .build());
 
@@ -118,24 +122,28 @@ class PersonAccountControllerIntegrationTest {
                 .uid("uuid1")
                 .iban("UA000000000000000000000123456789")
                 .balance(4500.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(1L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid2")
                 .iban("UA000000000000000000000987654321")
                 .balance(2700.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(2L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid3")
                 .iban("UA000000000000000000000918273645")
                 .balance(9000.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(3L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid4")
                 .iban("UA000000000000000000000123456789")
                 .balance(12000.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(2L))
                 .build());
 
@@ -170,30 +178,35 @@ class PersonAccountControllerIntegrationTest {
                 .uid("uuid1")
                 .iban("UA000000000000000000000123456789")
                 .balance(4500.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(1L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid2")
                 .iban("UA000000000000000000000987654321")
                 .balance(2700.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(2L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid3")
                 .iban("UA000000000000000000000918273645")
                 .balance(9000.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(3L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid4")
                 .iban("UA000000000000000000000123456789")
                 .balance(12000.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(2L))
                 .build());
 
         var requestAccount = AccountDto.builder()
                 .iban("UA00000000000000000000076548932")
                 .balance(12500.00)
+                .currency("UAH")
                 .build();
 
         var json = mockMvc.perform(post("/api/persons/{personId}/accounts", "1098")
@@ -240,24 +253,28 @@ class PersonAccountControllerIntegrationTest {
                 .uid("uuid1")
                 .iban("UA000000000000000000000123456789")
                 .balance(4500.00)
+                .currency("UAH")
                 .person(person1)
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid2")
                 .iban("UA000000000000000000000987654321")
                 .balance(2700.00)
+                .currency("UAH")
                 .person(person2)
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid3")
                 .iban("UA000000000000000000000918273645")
                 .balance(9000.00)
+                .currency("UAH")
                 .person(person3)
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid4")
                 .iban("UA000000000000000000000123456789")
                 .balance(12000.00)
+                .currency("UAH")
                 .person(person2)
                 .build());
 
@@ -300,24 +317,28 @@ class PersonAccountControllerIntegrationTest {
                 .uid("uuid1")
                 .iban("UA000000000000000000000123456789")
                 .balance(4500.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(1L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid2")
                 .iban("UA000000000000000000000987654321")
                 .balance(2700.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(2L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid3")
                 .iban("UA000000000000000000000918273645")
                 .balance(9000.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(3L))
                 .build());
         accountRepository.save(Account.builder()
                 .uid("uuid4")
                 .iban("UA000000000000000000000123456789")
                 .balance(12000.00)
+                .currency("UAH")
                 .person(personRepository.getReferenceById(2L))
                 .build());
 

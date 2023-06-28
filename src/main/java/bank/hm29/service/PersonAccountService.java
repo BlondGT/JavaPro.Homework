@@ -38,6 +38,7 @@ public class PersonAccountService {
                 .uid(UUID.randomUUID().toString())
                 .iban(accountDto.iban())
                 .balance(accountDto.balance())
+                .currency(accountDto.currency())
                 .person(person)
                 .build());
         return mapAccount(savedAccount);
@@ -59,6 +60,7 @@ public class PersonAccountService {
                 .uid(account.getUid())
                 .iban(account.getIban())
                 .balance(account.getBalance())
+                .currency(account.getCurrency())
                 .person_id(account.getPerson().getId())
                 .build();
     }

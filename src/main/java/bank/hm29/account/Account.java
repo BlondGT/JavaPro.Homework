@@ -19,6 +19,8 @@ public class Account extends BaseEntity {
     private String uid;
     private String iban;
     private Double balance;
+    @Column(nullable = false)
+    private String currency;
 
     @ManyToOne
     @JoinColumn(name = "person_id")
