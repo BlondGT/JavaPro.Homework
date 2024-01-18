@@ -5,13 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Currency;
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AmountResponse {
+public class Amount {
     private double value;
-    private Currency currency;
+    private String currency;
 }

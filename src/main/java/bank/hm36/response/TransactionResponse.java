@@ -18,7 +18,7 @@ public class TransactionResponse {
     private String transactionId;
     private String from;
     private String to;
-    private AmountResponse amountResponse;
+    private Amount amount;
 
     @JsonProperty("created_at")
     private Instant createdAt;

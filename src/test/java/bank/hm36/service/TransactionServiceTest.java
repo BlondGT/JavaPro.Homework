@@ -5,6 +5,7 @@ import bank.hm29.account.AccountDto;
 import bank.hm29.account.AccountRepository;
 import bank.hm31.CurrencyConverter;
 import bank.hm36.exception.ValidationException;
+import bank.hm36.response.Amount;
 import bank.hm36.transaction.TransactionDto;
 import bank.hm36.transaction.TransactionRepository;
 import org.junit.jupiter.api.Test;
@@ -41,12 +42,10 @@ class TransactionServiceTest {
        Mockito.when(mockAccountRepository.findByIban(to.getIban())).thenReturn(Optional.of(to));
 
        var mockTransactionRepository = Mockito.mock(TransactionRepository.class);
-       var mockAccount = Mockito.mock(Account.class);
        var mockCurrencyConverter = Mockito.mock(CurrencyConverter.class);
        var transactionService = new TransactionService(
                mockAccountRepository,
                mockTransactionRepository,
-               mockAccount,
                mockCurrencyConverter);
 
        transactionService.transferMoney(
@@ -54,7 +53,10 @@ class TransactionServiceTest {
                                UUID.randomUUID().toString(),
                                from.getIban(),
                                to.getIban(),
-                               250.0));
+                               Amount.builder()
+                                       .value(250.0)
+                                       .currency("UAH")
+                                       .build()));
 
        assertEquals(750, from.getBalance());
        assertEquals(750, to.getBalance());
